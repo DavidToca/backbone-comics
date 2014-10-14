@@ -6,8 +6,7 @@ app.RegisterView = Backbone.View.extend({
 	// template: _.template($('#template_comic_list').html()),
 
 	events: {
-		"submit": "register",
-		'click #btn_generic_login'		: 'login',
+		"click #register_button": "register",
 		'blur .alfanumeric_field' 		: "alfaNumberValidation",
 		'blur .password' 				: "passwordValidation",
 	},
@@ -17,7 +16,7 @@ app.RegisterView = Backbone.View.extend({
 	},
 
 	register: function () {
-
+		console.log("calling register");
 		var name = $('#register_name').val();
 		var username = $('#register_username').val();
 		var password = $('#register_password').val();
@@ -31,18 +30,15 @@ app.RegisterView = Backbone.View.extend({
 			},
 			error: function(model, error){
 				console.log("error");
-				// console.log("error " + error);
-				// return false;
-				// this.render();
 			}
 
 		});
 
-		// if (new_user.validationError){
-		// 	this.render(new_user.validationError);
-		// 	console.log(new_user.validationError);
-		// 	return false;
-		// }
+		if (new_user.validationError){
+			this.render(new_user.validationError);
+			console.log(new_user.validationError);
+			// return false;
+		}
 
 	},
 

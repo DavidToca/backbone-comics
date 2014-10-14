@@ -14,15 +14,14 @@ app.SessionManager = function(){
 	},
 
 	this.login = function(username, password){
-		debugger;
-		if( this.isLoged()){
+		if(this.isLoged()){
 			// its already logged in
 			return true
 		}
 
 		// read the current users collection
 		app.users_collection.fetch();
-		
+		debugger;
 		// check if the username and password matches
 		if (app.users_collection.where({ username: username, password: password })[0]) {
 			sessionStorage.setItem('current_user', 1);
@@ -30,8 +29,6 @@ app.SessionManager = function(){
 		};
 
 		return false;
-
-		// return sessionStorage.getItem('current_user');
 	},
 
 	this.logout = function(){

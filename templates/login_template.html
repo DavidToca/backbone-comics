@@ -4,9 +4,14 @@
 	<input id="form_username" type="text" class="input-block-level" placeholder="Username">
 	<input id="form_password" type="password" class="input-block-level" placeholder="Password">
 	<div class="login_options">
-		<button class="btn btn-large btn-primary" type="submit">Sign in</button>
+		<button id="login_button" class="btn btn-large btn-primary" type="button">Sign in</button>
 		<a href="#register"> or register </a>
 	</div>
+	<% if(options.error){%>
+	<div class="alert alert-danger" role="alert">
+        <strong>Error!</strong> User or password doesn't match.
+      </div>
+    <% }; %>
 
 </form>	
 </div>
