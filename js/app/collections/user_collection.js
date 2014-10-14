@@ -1,8 +1,8 @@
 
-app.ComicsCollection = Backbone.Collection.extend({
+app.UsersCollection = Backbone.Collection.extend({
 
-	model: app.comicsModel,
-    localStorage: new Backbone.LocalStorage("comics_store"),
+	model: app.UserModel,
+    localStorage: new Backbone.LocalStorage("users_store"),
 
     filterByLoaned: function(isLoaned){
 

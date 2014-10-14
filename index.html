@@ -12,43 +12,89 @@
 	    <!-- <link href="css/navbar-fixed-top.css" rel="stylesheet"> -->
 
 	    <!-- CUSTOM APP STYLES -->
-	    <!-- <link href="css/app_styles.css" rel="stylesheet"> -->
+	    <link href="css/app_styles.css" rel="stylesheet">
 
 	</head>
 
 	<body>
 
-		<!-- LIBRARIES -->
-		<script src="js/lib/jquery-1.11.1.min.js"></script>
-		<script src="js/lib/underscore-min.js"></script>
-		<script src="js/lib/backbone-min.js"></script>
-		<script src="js/lib/backbone.localStorage.js"></script>
-		<script src="js/lib/bootstrap.min.js"></script>
+	<div class="navbar navbar-inverse" style="display: none;">
 
-		<!-- APP LIBRARIES -->
-		<script src="js/app/app.js"></script>
+	<div class="navbar-collapse collapse navbar-inverse-collapse">
+	<ul class="nav navbar-nav">
+	  <li class="active" ><a href="#">Comics</a></li>
+	  <li><a href="#">Genders</a></li>
+	  <li><a href="#">Editions</a></li>
+	  <li><a href="#">News</a></li>
+	  <li><a href="#">Characters</a></li>
+	  <li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="#">Action</a></li>
+	      <li><a href="#">Another action</a></li>
+	      <li><a href="#">Something else here</a></li>
+	      <li class="divider"></li>
+	      <li class="dropdown-header">Dropdown header</li>
+	      <li><a href="#">Separated link</a></li>
+	      <li><a href="#">One more separated link</a></li>
+	    </ul>
+	  </li>
+	</ul>
+	<ul class="nav navbar-nav navbar-right">
+	<li><form class="navbar-form navbar-left">
+	  <input type="text" class="form-control col-lg-10" placeholder="Search">
+	</form></li>
+	  <li class="dropdown">
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	    <ul class="dropdown-menu">
+	      <li><a href="#">Action</a></li>
+	      <li><a href="#">Another action</a></li>
+	      <li><a href="#">Something else here</a></li>
+	      <li class="divider"></li>
+	      <li><a href="#">Separated link</a></li>
+	    </ul>
+	  </li>
+	</ul>
+	</div>
+	</div>
 
-		<!-- APP MODELS -->
-		<script src="js/app/models/person_model.js"></script>
-		<script src="js/app/models/loan_model.js"></script>
-		<script src="js/app/models/comic_model.js"></script>
+	<article id="main_content">
+		
+	</article>
 
-		<!-- APP COLLECTIONS -->
-		<script src="js/app/collections/person_collection.js"></script>
-		<script src="js/app/collections/loan_collection.js"></script>
-		<script src="js/app/collections/comic_collection.js"></script>
+	<!-- LIBRARIES -->
+	<script src="js/lib/jquery-1.11.1.min.js"></script>
+	<script src="js/lib/underscore-min.js"></script>
+	<script src="js/lib/backbone-min.js"></script>
+	<script src="js/lib/backbone.localStorage.js"></script>
+	<script src="js/lib/backbone.routefilter.min.js"></script>
+	<script src="js/lib/backbone-validation-min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
 
-		<!-- APP VIEWS -->
-		<script src="js/app/views/person_view.js"></script>
-		<script src="js/app/views/loan_view.js"></script>
-		<script src="js/app/views/comic_view.js"></script>
+	<!-- APP LIBRARIES/UTILS -->
+	<script src="js/app/app.js"></script>
+	<script src="js/app/session.js"></script>
 
-		<!-- APP ROUTERS -->
-		<script src="js/app/router.js"></script>
+	<!-- APP MODELS -->
+	<script src="js/app/models/user_model.js"></script>
+	<script src="js/app/models/loan_model.js"></script>
+	<script src="js/app/models/comic_model.js"></script>
 
-		<script type="text/javascript">
-			Backbone.history.start();
-		</script>
+	<!-- APP COLLECTIONS -->
+	<script src="js/app/collections/user_collection.js"></script>
+	<script src="js/app/collections/loan_collection.js"></script>
+	<script src="js/app/collections/comic_collection.js"></script>
+
+	<!-- APP VIEWS -->
+	<script src="js/app/views/register_view.js"></script>
+	<script src="js/app/views/user_view.js"></script>
+	<script src="js/app/views/loan_view.js"></script>
+	<script src="js/app/views/comic_view.js"></script>
+	<script src="js/app/views/login_view.js"></script>
+
+	<!-- APP ROUTERS -->
+	<script src="js/app/router.js"></script>
+	<script src="js/app/init.js"></script>
 
 	</body>
 </html>
