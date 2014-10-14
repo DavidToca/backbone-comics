@@ -18,7 +18,7 @@ app.LoginView = Backbone.View.extend({
 		var password = $('#form_password').val();
 		var success = app.session_manager.login(username, password);
 		if(success){
-			window.location.hash = 'index';
+			window.location.hash = '';
 		}
 		else{
 			this.render({error: true});
