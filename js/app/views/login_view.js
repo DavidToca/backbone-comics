@@ -14,7 +14,6 @@ app.LoginView = Backbone.View.extend({
 	},
 
 	login: function () {
-		debugger;
 		var username = $('#form_username').val();
 		var password = $('#form_password').val();
 		var success = app.session_manager.login(username, password);

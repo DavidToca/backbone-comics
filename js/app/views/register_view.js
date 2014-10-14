@@ -25,8 +25,9 @@ app.RegisterView = Backbone.View.extend({
 		new_user.save({name: name, username: username, password: password}, {
 
 			success: function(){
+				app.users_collection.add(new_user);
 				app.session_manager.login(username, password);
-				window.location.hash = 'index';
+				window.location.hash = '';
 			},
 			error: function(model, error){
 				console.log("error");

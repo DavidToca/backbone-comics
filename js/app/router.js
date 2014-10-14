@@ -37,7 +37,6 @@ app.Router = Backbone.Router.extend({
      },
 
 	login : function () {
-        debugger;
         app.login_view.render();
      },
 

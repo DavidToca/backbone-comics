@@ -19,9 +19,6 @@ app.SessionManager = function(){
 			return true
 		}
 
-		// read the current users collection
-		app.users_collection.fetch();
-		debugger;
 		// check if the username and password matches
 		if (app.users_collection.where({ username: username, password: password })[0]) {
 			sessionStorage.setItem('current_user', 1);
