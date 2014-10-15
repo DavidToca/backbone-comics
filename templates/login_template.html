@@ -1,15 +1,23 @@
 <div class="form_content">
 <form class="form-signin" action="#">
 	<h2 class="form-signin-heading">Please sign in</h2>
-	<input id="form_username" type="text" class="input-block-level" placeholder="Username">
-	<input id="form_password" type="password" class="input-block-level" placeholder="Password">
+	<div id="form_username_container">
+		<input id="form_username" type="text" class="form-control input-block-level login_input validate-text" placeholder="Username">
+		<p id="form_username_help" class="bg-danger"></p>
+	</div>
+	<div id="form_password_container">
+		<input id="form_password" type="password" class="form-control input-block-level login_input validate-text" placeholder="Password">
+		<p id="form_password_help" class="bg-danger"></p>
+	</div>
 	<div class="login_options">
-		<button id="login_button" class="btn btn-large btn-primary" type="button">Sign in</button>
-		<a href="#register"> or register </a>
+		<button id="login_button"  disabled class="btn btn-large btn-success" type="button">Sign in</button>
+	</div>
+	<div class="login_alternative" style="border-top: 1px solid;">
+		new user? <a href="#register">register </a>
 	</div>
 	<% if(options.error){%>
 	<div class="alert alert-danger" role="alert">
-        <strong>Error!</strong> User or password doesn't match.
+        <strong>Error!</strong> <%= options.error %>
       </div>
     <% }; %>
 

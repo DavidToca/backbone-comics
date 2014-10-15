@@ -32,7 +32,7 @@
 
 .login_options {
   position: relative;
-  margin: 1em 0em 0em;
+  margin: 2em 0em 0em;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -40,3 +40,10 @@
 }
 
 .lefted { vertical-align: left;}
+
+.login_alternative {
+
+  border-top: 1px solid;
+  padding: 1em 0em;
+
+}

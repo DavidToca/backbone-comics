@@ -1,13 +1,29 @@
 <div class="form_content">
 <form class="form-signin" action="#">
 	<h2 class="form-signin-heading">Registration</h2>
-	<input id="register_name" type="text" class="input-block-level" placeholder="Name">
-	<input id="register_username" type="text" class="input-block-level alfanumeric_field" placeholder="Username">
-	<input id="register_password" type="password" class="input-block-level password" placeholder="Password">
-	<div class="login_options">
-		<button id="register_button" class="btn btn-large btn-primary" type="button">Register</button>
-		<a href="#login"> or sign in </a>
+	<div id="register_name_container">
+		<input id="register_name" type="text" class="form-control input-block-level register_input validate-text" placeholder="Name">
+		<p id="register_name_help" class="bg-danger"></p>
+
 	</div>
 
+	<div id="register_username_container">
+		<input id="register_username" type="text" class="form-control input-block-level register_input validate-text" placeholder="Username">
+		<p id="register_username_help" class="bg-danger"></p>
+
+	</div>
+	<div id="register_password_container">
+	<input id="register_password" type="password" class="form-control input-block-level password register_input validate-text" placeholder="Password">
+	<p id="register_password_help" class="bg-danger"></p>
+
+	</div>
+	<div class="login_options">
+		<button id="register_button" disabled class="btn btn-large btn-success register_input" type="button">Register</button>
+	</div>
+
+	<div class="login_alternative" style="border-top: 1px solid;">
+		already a user? <a href="#login">sign in</a>
+	</div>
+	
 </form>	
 </div>
