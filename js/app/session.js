@@ -30,6 +30,8 @@ app.SessionManager = function(){
 
 	this.logout = function(){
 		sessionStorage.removeItem('current_user');
+		//FIXME
+		app.base_view.unrender();
 		window.location.hash = 'login';
 	}
 

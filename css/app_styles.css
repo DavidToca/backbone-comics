@@ -25,10 +25,6 @@
 }
 
 
-#main_content {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
 
 .login_options {
   position: relative;
@@ -46,4 +42,57 @@
   border-top: 1px solid;
   padding: 1em 0em;
 
+}
+
+#banner{
+  display: block;
+  background: white;
+  border: 2px dashed;
+  height: 7em;
+  background-size: cover;
+  margin: 0px;
+}
+
+#banner_text{
+  position: relative;
+  left: 33%;
+  top: 30%;
+  margin: 0px;
+  display: inline;
+}
+
+#base_header{
+  margin: 0px;
+  visibility: hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -6em;
+    padding-bottom: 6em;
+}
+footer{
+height: 3em;
+border: 1px solid;
+margin 0 auto;
+padding: 5px;
+visibility: hidden;
+}
+
+.share-buttons{
+  list-style: none;
+}
+
+.share-buttons li{
+  display: inline;
+}
+
+
+footer .container {
+  
 }

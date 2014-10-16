@@ -10,7 +10,7 @@ app.RegisterView = Backbone.View.extend({
 	events: {
 		"click #register_button"	: "register",
 		'keyup .register_input.validate-text'  	: "validateText",
-		'blur .register_input.validate-text'  	: "validateText",
+		// 'blur .register_input.validate-text'  	: "validateText",
 		'blur .register_input.validate-length'  : "validateLength",
 	},
 
@@ -96,14 +96,12 @@ app.RegisterView = Backbone.View.extend({
         }
 
         return false;
-	},	validateElementLength: function(element){
-
+	},	
+	validateElementLength: function(element){
+		//asumes the value is not empty
 		var value = element.val();
 
-        if (value === "") {
-        	return "Can\'t be empty";
-        }
-        else if(value.length < 7){
+		if(value.length < 7){
         	return "Has invalid length, 7 as minimum";
         }
 

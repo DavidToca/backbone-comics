@@ -6,7 +6,9 @@
 		<title>Sheldon Comics</title>
 
 	    <!-- BOOTSTRAP -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/bootstrap_flatly.min.css" rel="stylesheet">
+	    <link href="css/font-awesome.min.css" rel="stylesheet">
+	    <link href="css/social-buttons.css" rel="stylesheet">
 
 	    <!-- CUSTOM STYLES FOR THIS TEMPLATE -->
 	    <!-- <link href="css/navbar-fixed-top.css" rel="stylesheet"> -->
@@ -18,7 +20,9 @@
 
 	<body>
 
-	<div class="navbar navbar-inverse" style="display: none;">
+	<div class="wrapper">
+
+	<div id="base_header" class="navbar navbar-inverse">
 
 	<div class="navbar-collapse collapse navbar-inverse-collapse">
 	<ul class="nav navbar-nav">
@@ -27,41 +31,52 @@
 	  <li><a href="#">Editions</a></li>
 	  <li><a href="#">News</a></li>
 	  <li><a href="#">Characters</a></li>
-	  <li class="dropdown">
-	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-	    <ul class="dropdown-menu">
-	      <li><a href="#">Action</a></li>
-	      <li><a href="#">Another action</a></li>
-	      <li><a href="#">Something else here</a></li>
-	      <li class="divider"></li>
-	      <li class="dropdown-header">Dropdown header</li>
-	      <li><a href="#">Separated link</a></li>
-	      <li><a href="#">One more separated link</a></li>
-	    </ul>
-	  </li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
 	<li><form class="navbar-form navbar-left">
 	  <input type="text" class="form-control col-lg-10" placeholder="Search">
 	</form></li>
 	  <li class="dropdown">
-	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+	    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 	    <ul class="dropdown-menu">
 	      <li><a href="#">Action</a></li>
-	      <li><a href="#">Another action</a></li>
-	      <li><a href="#">Something else here</a></li>
 	      <li class="divider"></li>
-	      <li><a href="#">Separated link</a></li>
+	      <li><a href="#logout">Logout</a></li>
 	    </ul>
 	  </li>
 	</ul>
 	</div>
+	<div>
 	</div>
+	<div>
+      <div id="banner" >
+      <h1 id="banner_text"> Your Ad goes here</h1>
+	  </div>
 
+      </div>
+    </div>
 	<article id="main_content">
 		
 	</article>
+	<div class="push"></div>
+	</div>
 
+
+	<footer id="base_footer" class="navbar-fixed-bottom">
+	<ul class="share-buttons">
+		<li><a>Edition |</a></li>
+		<li><a>News |</a></li>
+		<li><a>Sitemap |</a></li>
+		<li><a>Network |</a></li>
+		<li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsheldoncomics.com&t=shelcomics" target="_blank"><img src="images/flat_web_icon_set/color/Facebook.png"></a></li>
+		<li><a>|</a></li>
+		<li><a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fsheldoncomics.com&text=shelcomics:%20http%3A%2F%2Fsheldoncomics.com" target="_blank" title="Tweet"><img src="images/flat_web_icon_set/color/Twitter.png"></a></li>
+		<li><a>|</a></li>
+		<li><a href="http://www.tumblr.com/share?v=3&u=http%3A%2F%2Fsheldoncomics.com&t=shelcomics&s=" target="_blank" title="Post to Tumblr"><img src="images/flat_web_icon_set/color/Tumblr.png"></a></li>
+		<li><a>|</a></li>
+		<li><a href="http://www.reddit.com/submit?url=http%3A%2F%2Fsheldoncomics.com&title=shelcomics" target="_blank" title="Submit to Reddit"><img src="images/flat_web_icon_set/color/Reddit.png"></a></li>
+	</ul>
+	</footer>
 	<!-- LIBRARIES -->
 	<script src="js/lib/jquery-1.11.1.min.js"></script>
 	<script src="js/lib/underscore-min.js"></script>
@@ -86,6 +101,7 @@
 	<script src="js/app/collections/comic_collection.js"></script>
 
 	<!-- APP VIEWS -->
+	<script src="js/app/views/base_view.js"></script>
 	<script src="js/app/views/register_view.js"></script>
 	<script src="js/app/views/user_view.js"></script>
 	<script src="js/app/views/loan_view.js"></script>

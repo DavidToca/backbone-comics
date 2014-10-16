@@ -13,19 +13,30 @@ app.Router = Backbone.Router.extend({
     before: function( route, params ) {
         // determines whenever the route should be access
         // only when the user is logged in
-        var is_login_required = this.unloged_routes.indexOf( route ) < 0;
+        var route_require_login = this.unloged_routes.indexOf( route ) < 0;
 
-        if (is_login_required && !app.session_manager.isLoged()) {
+        //check that the user can access this route
+
+        if (route_require_login && !app.session_manager.isLoged()) {
             this.login();
             return false;
         }
+
         // the actions that doesnt required login should be ignored once
         // the user is logged in (registration and login).
-        else if(!is_login_required && app.session_manager.isLoged()){
+        else if(!route_require_login && app.session_manager.isLoged()){
             this.index();
             return false;
         }
-        return true;
+
+        if (route_require_login) {
+            app.base_view.render();
+        }
+        else{
+            app.base_view.unrender();
+        }
+
+                return true;
     },
 
     index : function () { 

@@ -6,6 +6,7 @@ app.users_collection = new app.UsersCollection();
 app.users_collection.fetch();
 
 // Initialize views
+app.base_view = new app.BaseView();
 app.comics_view = new app.ComicsView();
 app.login_view = new app.LoginView();
 app.register_view = new app.RegisterView();
