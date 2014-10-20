@@ -1,10 +1,10 @@
 app.ComicModel = Backbone.Model.extend({
 
+	localStorage: new Backbone.LocalStorage("comics_store"),
+
 	defaults: {
-		id 			: 0,
 		name 		: 'default',
-		image_url	: "http://www.coverbrowser.com/image/adventures-into-the-unknown/7-1.jpg",
-		loaned		: false
-	},
+		cover_image 		: 'http://media-cache-ec0.pinimg.com/736x/ef/24/bf/ef24bf4883749ba791d4f06e4339b93a.jpg'
+	}
 
 });

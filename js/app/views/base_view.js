@@ -14,6 +14,11 @@ app.BaseView = Backbone.View.extend({
 
 		header.css( "visibility", "visible" );
 		footer.css( "visibility", "visible" );
+
+		if(options.admin){
+			
+		}
+
 	},
 
 	unrender: function (options){

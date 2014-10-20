@@ -77,11 +77,11 @@ html, body {
     padding-bottom: 6em;
 }
 footer{
-height: 3em;
-border: 1px solid;
-margin 0 auto;
-padding: 5px;
-visibility: hidden;
+  height: 3em;
+  border: 1px solid;
+  margin 0 auto;
+  padding: 5px;
+  visibility: hidden;  
 }
 
 .share-buttons{
@@ -92,7 +92,23 @@ visibility: hidden;
   display: inline;
 }
 
+.admin_action{
+  visibility: hidden;
+}
 
-footer .container {
-  
+#main_content{
+  margin: 5em 1em;
+}
+
+.comic{
+  display: inline-block;
+  border: 1px solid black;
+  width: 13em;
+  height: 20em;
+  background: black;
+}
+
+.comic img{
+  max-width:100%;
+  max-height:100%;
 }
