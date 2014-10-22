@@ -17,8 +17,7 @@ app.RegisterView = Backbone.View.extend({
 	initialize: function () {
 
 	},
-
-	register: function () {
+ register: function () {
 		console.log("calling register");
 		var name = $('#register_name').val();
 		var username = $('#register_username').val();
@@ -130,8 +129,7 @@ app.RegisterView = Backbone.View.extend({
 	},
 	render: function (errors){
 		var that = this;
-		// I'd rather read the template and then rendered
-		// than hardcoded all templates on the same html
+
         $.get('templates/register_template.html', function (data) {
             var content = _.template(data);
             that.$el.html( content );

@@ -20,7 +20,6 @@ app.ComicsView = Backbone.View.extend({
 	renderAll: function(event){
 		this.render(app.comics_collection, function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 		
@@ -28,35 +27,30 @@ app.ComicsView = Backbone.View.extend({
 	renderByPopular: function (event){
 		this.render(app.comics_collection.filterByPopularity(), function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 	},
 	renderBySearched: function (event){
 		this.render(app.comics_collection.filterBySearched(), function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 	},
 	renderByQualificated: function (event){
 		this.render(app.comics_collection.filterByQualificated(), function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 	},
 	renderByRecommended: function (event){
 		this.render(app.comics_collection.filterByRecommended(), function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 	},
 	renderByTop: function (event){
 		this.render(app.comics_collection.filterByTop(), function(){
 			var elem = $('#' + event.target.id);
-			console.log("yolo");
 			elem.addClass("active");	
 		});
 	},

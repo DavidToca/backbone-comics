@@ -82,7 +82,11 @@ footer{
   margin 0 auto;
   padding: 5px;
   visibility: hidden;
-  background: white;  
+  background: #34495e;  
+}
+
+footer a{
+  color: white;
 }
 
 .share-buttons{
@@ -121,11 +125,4 @@ footer{
 
 #banner {
   background: url("http://comicsworthreading.com/wp-content/uploads/2011/06/WWDigitalSale.jpg");
-
-/*  background: url("http://www.newyorkcomiccon.com/RNA/RNA_NewYorkComicCon_V2/images/2013/dgp/nycc-728x902.gif?v=635119232701873686") no-repeat; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-
 }
