@@ -126,3 +126,42 @@ footer a{
 #banner {
   background: url("http://comicsworthreading.com/wp-content/uploads/2011/06/WWDigitalSale.jpg");
 }
+
+.gender {
+  background: #ecf0f1;
+  margin: 2em 0;
+  clear: both;
+  overflow: hidden;
+  padding: 1em;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.gender_image{
+  float: left;
+  margin-right: 1em;
+
+}
+
+h2 {
+  padding: 0;
+  margin: 0 0 3px 0;
+}
+
+#genders_content { 
+
+  padding: 0em 3em;
+
+}
+
+.bg-blue{
+  background: #A5F2F1;
+}
+.bg-green{
+  background: #A5F2B6;
+}

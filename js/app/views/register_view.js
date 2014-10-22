@@ -3,138 +3,141 @@ app.RegisterView = Backbone.View.extend({
 
 	el: '#main_content',
 
-	// template: _.template($('#template_comic_list').html()),
 	isAlfaNum: function(input){
 		return input.match(/^\w+$/);
 	},
 	events: {
 		"click #register_button"	: "register",
 		'keyup .register_input.validate-text'  	: "validateText",
-		// 'blur .register_input.validate-text'  	: "validateText",
 		'blur .register_input.validate-length'  : "validateLength",
 	},
 
 	initialize: function () {
 
 	},
- register: function () {
-		console.log("calling register");
-		var name = $('#register_name').val();
-		var username = $('#register_username').val();
-		var password = $('#register_password').val();
 
-		var new_user = new app.UserModel();
-		new_user.save({name: name, username: username, password: password}, {
+	 register: function () {
+			console.log("calling register");
+			var name = $('#register_name').val();
+			var username = $('#register_username').val();
+			var password = $('#register_password').val();
 
-			success: function(){
-				app.users_collection.add(new_user);
-				app.session_manager.login(username, password);
-				window.location.hash = '';
-			},
-			error: function(model, error){
-				console.log("error");
+			var new_user = new app.UserModel();
+			new_user.save({name: name, username: username, password: password}, {
+
+				success: function(){
+					app.users_collection.add(new_user);
+					app.session_manager.login(username, password);
+					window.location.hash = '';
+				},
+				error: function(model, error){
+					console.log("error");
+				}
+
+			});
+
+			if (new_user.validationError){
+				this.render(new_user.validationError);
+				console.log(new_user.validationError);
+				// return false;
 			}
 
-		});
+		},
 
-		if (new_user.validationError){
-			this.render(new_user.validationError);
-			console.log(new_user.validationError);
-			// return false;
-		}
+		validateText: function(event){
+			var elem = $('#' + event.target.id);
+			var elem_container = $('#' + event.target.id + "_container");
+			var elem_help_text = $('#' + event.target.id + "_help");
 
-	},
+			var error = this.validateElementText(elem);
 
-	validateText: function(event){
-		var elem = $('#' + event.target.id);
-		var elem_container = $('#' + event.target.id + "_container");
-		var elem_help_text = $('#' + event.target.id + "_help");
+			if(error){
+	           elem_container.addClass("has-error");
+	           elem_help_text.text(error);
+			}
+			else{
+			    elem_container.removeClass("has-error");
+				elem_help_text.text("");
+			}
 
-		var error = this.validateElementText(elem);
+			this.validateButton();
 
-		if(error){
-           elem_container.addClass("has-error");
-           elem_help_text.text(error);
-		}
-		else{
-		    elem_container.removeClass("has-error");
-			elem_help_text.text("");
-		}
+		},
 
-		this.validateButton();
+		validateLength: function(event){
+			var elem = $('#' + event.target.id);
+			var elem_container = $('#' + event.target.id + "_container");
+			var elem_help_text = $('#' + event.target.id + "_help");
 
-	},
-	validateLength: function(event){
-		var elem = $('#' + event.target.id);
-		var elem_container = $('#' + event.target.id + "_container");
-		var elem_help_text = $('#' + event.target.id + "_help");
+			var error = this.validateElementLength(elem);
 
-		var error = this.validateElementLength(elem);
+			if(error){
+	           elem_container.addClass("has-error");
+	           elem_help_text.text(error);
+			}
+			else{
+			    elem_container.removeClass("has-error");
+				elem_help_text.text("");
+			}
 
-		if(error){
-           elem_container.addClass("has-error");
-           elem_help_text.text(error);
-		}
-		else{
-		    elem_container.removeClass("has-error");
-			elem_help_text.text("");
-		}
+			this.validateButton();
 
-		this.validateButton();
+		},
 
-	},
-	validateElementText: function(element){
+		validateElementText: function(element){
 
-		var value = element.val();
+			var value = element.val();
 
-        if (value === "") {
-        	return "Can\'t be empty";
-        }
-        else if(!this.isAlfaNum(value)){
-        	return "Has invalid characters";
-        }
+	        if (value === "") {
+	        	return "Can\'t be empty";
+	        }
+	        else if(!this.isAlfaNum(value)){
+	        	return "Has invalid characters";
+	        }
 
-        return false;
-	},	
-	validateElementLength: function(element){
-		//asumes the value is not empty
-		var value = element.val();
+	        return false;
+		},	
 
-		if(value.length < 7){
-        	return "Has invalid length, 7 as minimum";
-        }
+		validateElementLength: function(element){
+			//asumes the value is not empty
+			var value = element.val();
 
-        return false;
-	},
+			if(value.length < 7){
+	        	return "Has invalid length, 7 as minimum";
+	        }
 
-	validateButton: function(){
-		var submit_button = $('#register_button');
+	        return false;
+		},
 
-		var user = $('#register_name');
-		var username = $('#register_username');
-		var password = $('#register_password');
+		validateButton: function(){
+			var submit_button = $('#register_button');
 
-		var user_error = this.validateElementText(user);
-		var username_error = this.validateElementText(username);
-		var password_error = this.validateElementText(password);
-		var password_length_error = this.validateElementLength(password);
+			var user = $('#register_name');
+			var username = $('#register_username');
+			var password = $('#register_password');
 
-		if(username_error || password_error ||password_length_error || user_error){
-			submit_button.attr("disabled", "disabled");
-		}
-		else{
-			submit_button.removeAttr("disabled");
-		}
+			var user_error = this.validateElementText(user);
+			var username_error = this.validateElementText(username);
+			var password_error = this.validateElementText(password);
+			var password_length_error = this.validateElementLength(password);
 
-	},
-	render: function (errors){
-		var that = this;
+			if(username_error || password_error ||password_length_error || user_error){
+				submit_button.attr("disabled", "disabled");
+			}
+			else{
+				submit_button.removeAttr("disabled");
+			}
 
-        $.get('templates/register_template.html', function (data) {
-            var content = _.template(data);
-            that.$el.html( content );
-        });
+		},
 
-	},
+		render: function (errors){
+			var that = this;
 
-});
+	        $.get('templates/register_template.html', function (data) {
+	            var content = _.template(data);
+	            that.$el.html( content );
+	        });
+
+		},
+
+	});

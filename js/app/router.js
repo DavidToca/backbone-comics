@@ -5,10 +5,10 @@ app.Router = Backbone.Router.extend({
         'register'  : 'register',
         'login'  : 'login',
         'logout'  : 'logout',
+        'gender'  : 'gender',
 	},
 
-    unloged_routes: ['login', 'register']
-    ,
+    unloged_routes: ['login', 'register'],
 
     before: function( route, params ) {
         // determines whenever the route should be access
@@ -41,6 +41,10 @@ app.Router = Backbone.Router.extend({
 
     index : function () { 
         app.comics_view.render(app.comics_collection);
+     },
+
+    gender : function () { 
+        app.gender_view.render();
      },
 
     register : function () { 

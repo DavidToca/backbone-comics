@@ -10,6 +10,7 @@ app.base_view = new app.BaseView();
 app.comics_view = new app.ComicsView();
 app.login_view = new app.LoginView();
 app.register_view = new app.RegisterView();
+app.gender_view = new app.GenderView();
 
 // Initialie session manager
 app.session_manager = new app.SessionManager();
