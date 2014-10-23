@@ -27,7 +27,7 @@
 	<div class="navbar-collapse collapse navbar-inverse-collapse">
 	<ul class="nav navbar-nav">
 	  <li class="active" ><a href="#">Comics</a></li>
-	  <li><a href="#gender">Genders</a></li>
+	  <li><a href="#">Genders</a></li>
 	  <li><a href="#">Editions</a></li>
 	  <li><a href="#">News</a></li>
 	  <li><a href="#">Characters</a></li>
@@ -62,6 +62,127 @@
 	</article>
 	<div class="push"></div>
 	</div>
+
+	<script type="text/template" id="login_template">
+		<div class="form_content">
+		<form class="form-signin" action="#">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<div id="form_username_container">
+				<input id="form_username" type="text" class="form-control input-block-level login_input validate-text" placeholder="Username">
+				<p id="form_username_help" class="bg-danger"></p>
+			</div>
+			<div id="form_password_container">
+				<input id="form_password" type="password" class="form-control input-block-level login_input validate-text" placeholder="Password">
+				<p id="form_password_help" class="bg-danger"></p>
+			</div>
+			<div class="login_options">
+				<button id="login_button"  disabled class="btn btn-large btn-success" type="button">Sign in</button>
+			</div>
+			<div class="login_alternative" style="border-top: 1px solid;">
+				new user? <a href="#register">register </a>
+			</div>
+			<% if(options.error){%>
+			<div class="alert alert-danger" role="alert">
+		        <strong>Error!</strong> <%= options.error %>
+		      </div>
+		    <% }; %>
+
+		</form>	
+		</div>
+
+	</script>
+
+
+	<script type="text/template" id="register_template">
+		<div class="form_content">
+		<form class="form-signin" action="#">
+			<h2 class="form-signin-heading">Registration</h2>
+			<div id="register_name_container">
+				<input id="register_name" type="text" class="form-control input-block-level register_input validate-text" placeholder="Name">
+				<p id="register_name_help" class="bg-danger"></p>
+
+			</div>
+
+			<div id="register_username_container">
+				<input id="register_username" type="text" class="form-control input-block-level register_input validate-text" placeholder="Username">
+				<p id="register_username_help" class="bg-danger"></p>
+
+			</div>
+			<div id="register_password_container">
+			<input id="register_password" type="password" class="form-control input-block-level password register_input validate-text validate-length" placeholder="Password">
+			<p id="register_password_help" class="bg-danger"></p>
+
+			</div>
+			<div class="login_options">
+				<button id="register_button" disabled class="btn btn-large btn-success register_input" type="button">Register</button>
+			</div>
+
+			<div class="login_alternative" style="border-top: 1px solid;">
+				already a user? <a href="#login">sign in</a>
+			</div>
+			
+		</form>	
+		</div>
+
+	</script>
+
+	<script type="text/template" id="comic_list_template">
+		<div class="row">
+		        <div class="col-sm-4 col-md-3 sidebar">
+		    <div class="mini-submenu">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </div>
+		    <div class="list-group">
+		        <p href="#" class="list-group-item bg-danger" id="comic_categories">
+		            Categories
+		        </p>
+		        <a href="#" class="list-group-item" id="comic_all">
+		            <i class="fa fa-globe"></i> All
+		        </a>
+		        <a id="comic_searches" href="#" class="list-group-item">
+		            <i class="fa fa-search"></i> Searches 
+		        </a>
+		        <a href="#" class="list-group-item" id="comic_popular">
+		            <i class="fa fa-fire"></i>
+		             Popular
+		        </a>
+		        <a href="#" class="list-group-item" id="comic_qualifications">
+		            <i class="fa fa-star-half-full"></i>
+		             Qualifications
+		        </a>
+		        <a href="#" class="list-group-item" id="comic_top">
+		            <i class="fa fa-angellist"></i> Top
+		        </a>
+
+		        <a href="#" class="list-group-item" id="comic_recommended">
+		            <i class="fa fa-bar-chart-o"></i> Recommended 
+		        </a>
+
+		    </div>        
+		</div>
+
+		<div class="col-sm-7 col-md-9 sidebar">
+
+		<% comics_collection.each(function(comic){ %>
+
+			<div class="comic">
+				<img src="<%= comic.get('cover_image') %>">
+
+			</div>
+
+		<% }); %>
+		<!-- <div class="jumbotron">
+		  <h1>Comic List</h1>
+		  <p>...</p>
+		  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+		</div>
+		 -->
+
+		</div>
+		</div>
+	</script>
 
 
 	<footer id="base_footer" class="navbar-fixed-bottom">

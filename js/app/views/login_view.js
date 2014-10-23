@@ -3,7 +3,7 @@ app.LoginView = Backbone.View.extend({
 
 	el: '#main_content',
 
-	// template: _.template($('#template_comic_list').html()),
+	template: _.template($('#login_template').html()),
 
 	isAlfaNum: function(input){
 		return input.match(/^\w+$/);
@@ -86,10 +86,9 @@ app.LoginView = Backbone.View.extend({
 		var options = options || {}
 		var that = this;
 
-        $.get('templates/login_template.html', function (data) {
-            var content = _.template(data, {options: options});
-            that.$el.html( content );
-        });
+		var rendered = this.template({options: options});
+        
+        that.$el.html( rendered );
 
 	},
 

@@ -3,7 +3,7 @@ app.ComicsView = Backbone.View.extend({
 
 	el: '#main_content',
 
-	// template: _.template($('#template_comic_list').html()),
+	template: _.template($('#comic_list_template').html()),
 
 	events: {
 		"click #comic_popular": "renderByPopular",
@@ -56,15 +56,14 @@ app.ComicsView = Backbone.View.extend({
 	},
 	render: function (comics, callback){
 		var that = this;
-		// I had rather read the template and then rendered
-		// than hardcoded all templates on the same html
-        $.get('templates/comic_list_template.html', function (data) {
-            var content = _.template(data, { comics_collection: comics } );
-            that.$el.html( content );
-            if(callback){
-            	callback.call();
-            }
-        });
+
+		var content = this.template({comics_collection: comics});
+		
+		that.$el.html( content );
+
+        if(callback){
+        	callback.call();
+        }
 
 	},
 
