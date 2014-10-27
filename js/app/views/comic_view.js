@@ -18,46 +18,57 @@ app.ComicsView = Backbone.View.extend({
 
 	},
 	renderAll: function(event){
-		this.render(app.comics_collection, function(){
+		var options = {comics_collection: app.comics_collection}
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 		
 	},
 	renderByPopular: function (event){
-		this.render(app.comics_collection.filterByPopularity(), function(){
+		var options = {comics_collection: app.comics_collection.filterByPopularity()}
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 	},
 	renderBySearched: function (event){
-		this.render(app.comics_collection.filterBySearched(), function(){
+		var options = {comics_collection: app.comics_collection.filterBySearched()}
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 	},
 	renderByQualificated: function (event){
-		this.render(app.comics_collection.filterByQualificated(), function(){
+		var options = {comics_collection: app.comics_collection.filterByQualificated()}
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 	},
 	renderByRecommended: function (event){
-		this.render(app.comics_collection.filterByRecommended(), function(){
+		var options = {comics_collection: app.comics_collection.filterByRecommended()}
+
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 	},
 	renderByTop: function (event){
-		this.render(app.comics_collection.filterByTop(), function(){
+		var options = {comics_collection: app.comics_collection.filterByTop()}
+		this.render(options, function(){
 			var elem = $('#' + event.target.id);
 			elem.addClass("active");	
 		});
 	},
-	render: function (comics, callback){
-		var that = this;
 
-		var content = this.template({comics_collection: comics});
+	render: function (options, callback){
+		var that = this;
+		if (!_.has(options, 'hide_sidebar')) {
+			options.hide_sidebar = false;
+		};
+
+		var content = this.template(options);
 		
 		that.$el.html( content );
 

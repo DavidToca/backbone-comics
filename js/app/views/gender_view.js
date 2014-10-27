@@ -3,14 +3,16 @@ app.GenderView = Backbone.View.extend({
 
 	el: '#main_content',
 
-	// template: _.template($('#template_comic_list').html()),
+	template: _.template($('#gender').html()),
 
 	initialize: function () {
 
 	},
 
-	render: function (comics, callback){
-		var that = this;
+	render: function (){
+		var rendered = this.template();
+
+        this.$el.html( rendered );
 	}
 
 });

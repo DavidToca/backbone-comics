@@ -6,6 +6,10 @@ app.Router = Backbone.Router.extend({
         'login'  : 'login',
         'logout'  : 'logout',
         'gender'  : 'gender',
+        'editions'  : 'editions',
+        'news'  : 'news',
+        'characters'  : 'characters',
+        'search'  : 'search'
 	},
 
     unloged_routes: ['login', 'register'],
@@ -40,11 +44,30 @@ app.Router = Backbone.Router.extend({
     },
 
     index : function () { 
-        app.comics_view.render(app.comics_collection);
+        app.comics_view.render({comics_collection: app.comics_collection});
      },
 
     gender : function () { 
         app.gender_view.render();
+     },
+
+
+    editions : function () { 
+        app.editions_view.render();
+     },
+
+    search: function () { 
+        app.search_view.render();
+     },
+
+
+    news : function () { 
+        app.news_view.render();
+     },
+
+
+    characters : function () { 
+        app.characters_view.render();
      },
 
     register : function () { 

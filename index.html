@@ -27,10 +27,11 @@
 	<div class="navbar-collapse collapse navbar-inverse-collapse">
 	<ul class="nav navbar-nav">
 	  <li class="active" ><a href="#">Comics</a></li>
-	  <li><a href="#">Genders</a></li>
-	  <li><a href="#">Editions</a></li>
-	  <li><a href="#">News</a></li>
-	  <li><a href="#">Characters</a></li>
+	  <li><a href="#gender">Genders</a></li>
+	  <li><a href="#editions">Editions</a></li>
+	  <li><a href="#news">News</a></li>
+	  <li><a href="#characters">Characters</a></li>
+	  <li><a href="#search">Search</a></li>
 	  <li class="admin_action"><a href="#">Administration</a></li>
 	</ul>
 	<ul class="nav navbar-nav navbar-right">
@@ -92,6 +93,78 @@
 
 	</script>
 
+	<script type="text/template" id="editions_template">
+	<h1>editions_template</h1>
+	</script>
+
+	<script type="text/template" id="search_template">
+
+	<div class="container">
+    <div class="row">    
+        <div id="search_box" class="col-xs-10">
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Search by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a id="serch_all" href="" class="search-option">All</a></li>
+                      <li class="divider"></li>
+                      <li><a id="search_title"class="search-option" href="#" style="cursor: default;">Title</a></li>
+                      <li><a id="search_edition"class="search-option" href="">Edition</a></li>
+                      <li><a id="search_characters"class="search-option" href="">Characters</a></li>
+                      <li><a id="search_other" class="search-option" href="">other</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+
+
+
+	<div class="something">
+		<div id="search_result">
+
+		<!-- <div class="jumbotron">
+		  <h1>Comic List</h1>
+		  <p>...</p>
+		  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+		</div>
+		 -->
+
+		</div>
+
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+
+
+	</div>
+
+
+
+	</script>
+
+
+	<script type="text/template" id="news_template">
+	<h1>news_template</h1>
+	</script>
+
+
+	<script type="text/template" id="characters_template">
+	<h1>characters_template</h1>
+	</script>
 
 	<script type="text/template" id="register_template">
 		<div class="form_content">
@@ -127,6 +200,7 @@
 	</script>
 
 	<script type="text/template" id="comic_list_template">
+	<% if(!hide_sidebar){ %>
 		<div class="row">
 		        <div class="col-sm-4 col-md-3 sidebar">
 		    <div class="mini-submenu">
@@ -162,8 +236,8 @@
 
 		    </div>        
 		</div>
-
-		<div class="col-sm-7 col-md-9 sidebar">
+<% }; %>
+		<div <% if(!hide_sidebar){ %> class="col-sm-7 col-md-9 sidebar" <% }; %>>
 
 		<% comics_collection.each(function(comic){ %>
 
@@ -184,6 +258,54 @@
 		</div>
 	</script>
 
+	<script type="text/template" id="gender">
+
+<div id="genders_content">
+    
+<h1> Genres </h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor. Proin et ipsum mauris. Morbi tristique accumsan tellus, non congue neque vehicula vitae. Sed in libero eget massa porta faucibus. In id sagittis augue, vehicula pulvinar risus. Nam ullamcorper diam vitae risus venenatis, eget imperdiet odio bibendum.</p>
+
+
+<div class="gender bg-blue">
+
+<img class="gender_image" src="images/comic_1.jpg" width="100em"/>
+
+<h2>Action</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor. Proin et ipsum mauris. Morbi tristique accumsan tellus, non congue neque vehicula vitae. Sed in libero eget massa porta faucibus. In id sagittis augue, vehicula pulvinar risus. Nam ullamcorper diam vitae risus venenatis, eget imperdiet odio bibendum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor.</p>
+
+</div>
+
+
+<div class="gender bg-green">
+
+<img class="gender_image" src="images/comic_2.jpg" width="100em"/>
+<h2>Adventure</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor. Proin et ipsum mauris. Morbi tristique accumsan tellus, non congue neque vehicula vitae. Sed in libero eget massa porta faucibus. In id sagittis augue, vehicula pulvinar risus. Nam ullamcorper diam vitae risus venenatis, eget imperdiet odio bibendum.</p>
+
+</div>
+
+<div class="gender bg-blue">
+
+<img class="gender_image" src="images/comic_3.jpg" width="100em"/>
+<h2>Horror</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor. Proin et ipsum mauris. Morbi tristique accumsan tellus, non congue neque vehicula vitae. Sed in libero eget massa porta faucibus. In id sagittis augue, vehicula pulvinar risus. Nam ullamcorper diam vitae risus venenatis, eget imperdiet odio bibendum.</p>
+
+</div>
+
+<div class="gender bg-green">
+
+<img class="gender_image" src="images/comic_4.jpg" width="100em"/>
+<h2>Funny</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut turpis mi, mollis ac mattis eget, malesuada sit amet ex. Phasellus mollis ultrices ipsum eleifend facilisis. Vestibulum ut nisl tincidunt, mattis augue ornare, lobortis dolor. Proin et ipsum mauris. Morbi tristique accumsan tellus, non congue neque vehicula vitae. Sed in libero eget massa porta faucibus. In id sagittis augue, vehicula pulvinar risus. Nam ullamcorper diam vitae risus venenatis, eget imperdiet odio bibendum.</p>
+
+</div>
+</div>
+
+
+
+
+	</script>
 
 	<footer id="base_footer" class="navbar-fixed-bottom">
 	<ul class="share-buttons">
@@ -231,6 +353,8 @@
 	<script src="js/app/views/comic_view.js"></script>
 	<script src="js/app/views/login_view.js"></script>
 	<script src="js/app/views/gender_view.js"></script>
+	<script src="js/app/views/search_view.js"></script>
+	<script src="js/app/views/generic_view.js"></script>
 
 	<!-- APP ROUTERS -->
 	<script src="js/app/router.js"></script>
