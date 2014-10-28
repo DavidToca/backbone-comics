@@ -22,7 +22,7 @@ app.Router = Backbone.Router.extend({
         //check that the user can access this route
 
         if (route_require_login && !app.session_manager.isLoged()) {
-            this.login();
+            window.location.hash = 'login';
             return false;
         }
 
