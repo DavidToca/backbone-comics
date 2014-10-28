@@ -12,7 +12,7 @@ app.SearchView = Backbone.View.extend({
 	},
 
 	initialize: function () {
-
+		this.comic_view = new app.ComicsView();
 	},
 	search: function(){
 		var comic_view = this.getComicView();
@@ -51,10 +51,8 @@ app.SearchView = Backbone.View.extend({
 		search_concept.html(new_text);
 	},
 	getComicView: function(){
-		if(this.comic_view === undefined){
-			this.comic_view = new app.ComicsView({el: '#search_result'});
-			return this.comic_view;
-		}
+		this.comic_view.setElement($("#search_result"))
+
 
 		return this.comic_view;
 	},
