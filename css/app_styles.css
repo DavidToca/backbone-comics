@@ -177,3 +177,11 @@ h2 {
   float: none;
   max-width: 70%;
 }
+
+.character{
+  display: inline-block;
+  margin: 2em;
+}
+.character h2{
+  margin-bottom: 0.5em;
+}
