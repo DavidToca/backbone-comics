@@ -12,9 +12,9 @@ app.login_view = new app.LoginView();
 app.register_view = new app.RegisterView();
 app.gender_view = new app.GenderView();
 app.search_view = new app.SearchView();
-app.editions_view = new app.GenericView({template_name: 'editions_template'});
-app.news_view = new app.GenericView({ template_name: 'news_template'});
-app.characters_view = new app.GenericView({ template_name: 'characters_template'});
+app.editions_view = new app.TemplateView({template_name: 'editions_template'});
+app.news_view = new app.TemplateView({ template_name: 'news_template'});
+app.characters_view = new app.TemplateView({ template_name: 'characters_template'});
 
 // Initialie session manager
 app.session_manager = new app.SessionManager();

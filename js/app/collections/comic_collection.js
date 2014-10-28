@@ -12,6 +12,31 @@ app.ComicsCollection = Backbone.Collection.extend({
 
 		return (new app.ComicsCollection(filtered));
 	},
+
+	searchBy: function(term, param){
+
+		search_results = this.filter(function(comic) {
+			var matched = false;
+
+			if(param === 'search_all'){
+				_.each(comic.attributes, function(value, key){
+					if(typeof value === 'string' && value.match(term)){
+						matched = true;
+						return;
+					}
+				});				
+			}
+			else{
+
+				var search_attr = param.replace('search_', '');
+				matched = comic.get(search_attr).match(term);
+			}
+
+			return matched;
+		});
+
+		return (new app.ComicsCollection(search_results));
+	},
     filterByLoaned: function(isLoaned){
     	return this.filterBy("loaned");
 	},

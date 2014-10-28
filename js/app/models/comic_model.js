@@ -4,7 +4,9 @@ app.ComicModel = Backbone.Model.extend({
 
 	defaults: {
 		name 		: 'default',
-		cover_image 		: 'images/comic_1.jpg'
+		cover_image 		: 'images/comic_1.jpg',
+		edition: '',
+		characters: ''
 	}
 
 });

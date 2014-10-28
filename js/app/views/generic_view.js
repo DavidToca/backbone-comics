@@ -1,5 +1,5 @@
 
-app.GenericView = Backbone.View.extend({
+app.TemplateView = Backbone.View.extend({
 
 	el: '#main_content',
 
