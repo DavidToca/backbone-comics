@@ -19,7 +19,7 @@ app.ComicsCollection = Backbone.Collection.extend({
 			var matched = false;
 
 			if(param === 'search_all'){
-				_.each(comic.attributes, function(value, key){
+				_.each(comic.getSearchAttributes(), function(value, key){
 					if(typeof value === 'string' && value.match(term)){
 						matched = true;
 						return;
@@ -27,8 +27,8 @@ app.ComicsCollection = Backbone.Collection.extend({
 				});				
 			}
 			else{
-
 				var search_attr = param.replace('search_', '');
+				
 				matched = comic.get(search_attr).match(term);
 			}
 

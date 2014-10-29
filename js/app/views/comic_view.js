@@ -12,12 +12,17 @@ app.ComicsView = Backbone.View.extend({
 		"click #comic_top": "renderByTop",
 		"click #comic_recommended": "renderByRecommended",
 		"click #comic_all": "renderAll",
+		// "mouseover .comic_image": "showDetail"
 	},
 
 	initialize: function () {
 
 	},
-	renderAll: function(event){
+	showDetail: function(event){
+		console.log('show detail');
+
+
+	},	renderAll: function(event){
 		var options = {comics_collection: app.comics_collection}
 		this.render(options, function(){
 			var elem = $('#' + event.target.id);
@@ -71,6 +76,20 @@ app.ComicsView = Backbone.View.extend({
 		var content = this.template(options);
 		
 		that.$el.html( content );
+
+		// Add fade
+		$('.comic_image').hover(
+		    function(event) {
+		    	var comic_data = $("#" + event.target.id + "_data");
+		        $(this).stop().animate({opacity: "0.3", duration: 'fast'}, function(){comic_data.css('display', 'inherit');});
+		        
+		    },
+		    function() {
+		    	var comic_data = $("#" + event.target.id + "_data");
+		        $(this).stop().animate({opacity: "1"});
+		        comic_data.css('display', 'none');
+		    }
+		);
 
         if(callback){
         	callback.call();

@@ -327,8 +327,17 @@
 		<% comics_collection.each(function(comic){ %>
 
 			<div class="comic">
-				<img src="<%= comic.get('cover_image') %>">
-
+				<img id="<%= comic.get('id') %>" class="comic_image" src="<%= comic.get('cover_image') %>">
+				<div class="comic_data" id="<%= comic.get('id') %>_data">
+				<h3><%= comic.get('name') %></h3>
+				<h4>characters</h4>
+				<p><%= comic.get('characters') %></p>
+				<h4>edition</h4>
+				<p><%= comic.get('edition') %></p>
+				<h4>summary</h4>
+				<p><%= comic.get('summary') %></p>
+				</div>
+				
 			</div>
 
 		<% }); %>
